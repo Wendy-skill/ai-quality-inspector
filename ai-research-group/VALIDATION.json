@@ -1,0 +1,41 @@
+{
+  "structure": "PASS",
+  "note": "Only structural and file integrity checks, not AI behaviour benchmarks",
+  "skills": [
+    {
+      "skill": "ai-literature-member",
+      "skill_lines": 167,
+      "referenced_files": 7,
+      "missing": [],
+      "total_package_files": 9
+    },
+    {
+      "skill": "ai-research-execution",
+      "skill_lines": 157,
+      "referenced_files": 8,
+      "missing": [],
+      "total_package_files": 10
+    },
+    {
+      "skill": "ai-paper-editor",
+      "skill_lines": 193,
+      "referenced_files": 7,
+      "missing": [],
+      "total_package_files": 9
+    },
+    {
+      "skill": "ai-strict-reviewer",
+      "skill_lines": 183,
+      "referenced_files": 7,
+      "missing": [],
+      "total_package_files": 10
+    },
+    {
+      "skill": "ai-quality-inspector",
+      "skill_lines": 302,
+      "referenced_files": 8,
+      "missing": [],
+      "total_package_files": 10
+    }
+  ]
+}

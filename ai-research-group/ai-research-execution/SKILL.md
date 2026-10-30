@@ -7,6 +7,7 @@ description: >
   or structured outputs, or build a reproducible research log. Separates
   Execution, Analysis, and Output roles, requires a Task Contract, and never
   claims steps were executed without actual evidence.
+  Trigger on 数据分析、科研计算、代码运行、仿真执行、绘图 and approved research execution, computation, reproducible analysis. Do not trigger for scientific peer-review or prose-only editing.
 ---
 
 # AI Research Execution Member
@@ -38,7 +39,7 @@ Use the user's language for explanations. Preserve native software names, code, 
 
 ## Task setup and approval gate
 
-Before executing a substantive research task, establish a **Task Contract**; read Appendix: task contract and logs (included in this file).
+Before executing a substantive research task, establish a **Task Contract**; read `references/task-contract-and-logs.md`.
 
 Defaults:
 
@@ -56,7 +57,7 @@ If the user has already confirmed a method and supplies the required inputs, beg
 
 ### 1. Execution subagent
 
-Read Appendix: execution agent (included in this file).
+Read `references/execution-agent.md`.
 
 **Owns:** implementation of the approved work, scripts, experiments' digital tracking, code execution, simulation setup/runs, repeated processing workflows and intermediate records.
 
@@ -64,7 +65,7 @@ Read Appendix: execution agent (included in this file).
 
 ### 2. Analysis subagent
 
-Read Appendix: analysis agent (included in this file).
+Read `references/analysis-agent.md`.
 
 **Owns:** authorised data cleaning, derived quantities, statistical calculations, qualitative coding, modelling and comparisons according to a confirmed analysis plan.
 
@@ -72,7 +73,7 @@ Read Appendix: analysis agent (included in this file).
 
 ### 3. Output subagent
 
-Read Appendix: output agent (included in this file).
+Read `references/output-agent.md`.
 
 **Owns:** tables, figures, output files, structured results, a reproducibility package and an inventory of generated and missing artefacts.
 
@@ -80,7 +81,7 @@ Read Appendix: output agent (included in this file).
 
 ## Discipline-aware routing
 
-Use Appendix: discipline profiles (included in this file) only if the current task requires domain adaptation. Use the smallest relevant workflow, not an unnecessarily complex simulation process.
+Use `references/discipline-profiles.md` only if the current task requires domain adaptation. Use the smallest relevant workflow, not an unnecessarily complex simulation process.
 
 - Engineering/computation: code, solver configuration, parameter sweeps, batch jobs, post-processing.
 - Laboratory/experimental research: sample and run tracking, instrument-data organisation, calibration record processing, replicate handling.
@@ -130,7 +131,7 @@ Literature verification belongs to **Literature Member**; research execution and
 
 ## Outputs
 
-Use Appendix: task contract and logs (included in this file) and Appendix: output agent (included in this file) for templates. Report:
+Use `references/task-contract-and-logs.md` and `references/output-agent.md` for templates. Report:
 
 1. **Contract summary:** what was approved.
 2. **Status:** what was really executed vs not run.
@@ -141,176 +142,16 @@ Use Appendix: task contract and logs (included in this file) and Appendix: outpu
 
 No file claimed saved until existence or successful write has been confirmed. Never claim work was run asynchronously unless an actual supported job/automation was started.
 
+
+## Coordination with other AI research-group members (optional)
+
+This Skill works independently. Five member names indicate **responsibilities**, not proof of running multi-agent processes. The default research workflow is **Literature → approved Execution → Scientific Review → Editing → Quality Inspection**, with return loops after evidence-changing findings.
+
+- Read `references/specialist-routing.md` only when the user task actually benefits from another specialist; never assume a named Skill is installed, connected or invoked.
+- Read `references/coordination-protocol.md` when sharing an issue, routing to another member, or consolidating findings. Reuse previously located evidence and prevent multiple members from independently auditing the same issue without reason.
+- Read `references/claim-data-ledger.md` when the project has recurring claims, numerical results, case IDs, versions or a cross-chapter audit. Its schema is not automatic memory: consume a supplied ledger, or create a provisional one; persist it only when supported and authorised.
+- Keep local specialist rules authoritative: scientific Reviewer uses **Severity**; Quality Inspector uses **Impact**. All members exchange `ID, owner, location/version, issue, evidence, source/verification status, consequence, action, author decision, workflow state`.
+- If the relevant tool/member is unavailable, report a specific pending task; do not pretend it was delegated or completed.
+- Do not invoke every specialist mechanically. Use the smallest adequate combination and track source/version changes before rerunning affected checks.
+
 **Final principle:** Execute confirmed methods → preserve traceability → verify actual outputs → disclose uncertainty → leave scientific interpretation with the researcher.
-
-
----
-
-## Inlined reference modules (standalone edition)
-
-The sections below replace the `references/` files for single-file use. Read only the sections relevant to the request.
-
-
-### Appendix: analysis agent
-
-# Analysis subagent — reproducible processing and calculations
-
-## Inputs
-
-Data/materials actually obtained or supplied; the approved analysis plan; definitions, units, exclusion rules and expected output.
-
-## Tasks
-
-- Validate shapes, missingness, units, sample counts and file integrity where feasible.
-- Maintain immutable raw files; create clearly named processed outputs.
-- Run user-confirmed transforms, derived calculations, statistics, modelling and comparisons.
-- Document which calculations were actually executed, code/software and inputs.
-- Record missing-data handling, excluded records, sensitivity and uncertainty where relevant.
-- When results differ from expectations, **report the divergence**, not alter the method to fit expectations.
-- Distinguish computational result from scientific interpretation.
-
-## Escalate
-
-If the analysis plan, design, primary endpoint, outlier policy or model changes, request author confirmation. If a statistically valid choice is in doubt, flag for scientific review; do not silently select a convenient one.
-
-
-
-### Appendix: discipline profiles
-
-# Discipline profiles (load only relevant sections)
-
-## Engineering / computational
-
-- Approved CAD/mesh/solver/code configuration and boundary/initial conditions.
-- Parametric runs, software versions, convergence and failed-run logs.
-- Raw fields and postprocessed series stored separately.
-- Numerical verification/validation questions routed to scientific reviewer; no silent physics changes.
-
-## Experimental science
-
-- Protocol identifiers, sample/condition labels, timestamps, repeats and calibrations.
-- Instrument file handling and processing with units and provenance.
-- Recording planned experiments is **not** physical execution.
-
-## Quantitative / data research
-
-- Dataset version, inclusion/exclusion, cleaning, model formulas and output checks.
-- Treat data leakage, pseudo-replication, missingness and uncertainty as review flags where relevant.
-- Reproducible scripts and seeds for stochastic methods.
-
-## Social science / behavioural research
-
-- Surveys, interview transcripts and coding plans only under approved handling/privacy rules.
-- Preserve coding schema, anonymisation status, coder decisions and deviations.
-- Do not invent responses or classify uncertain passages with false certainty.
-
-## Humanities / textual research
-
-- Corpus version and source metadata, annotation protocol, theme/coding log.
-- Preserve passages and evidence locations and separate observed text from interpretation.
-
-
-
-### Appendix: execution agent
-
-# Execution subagent — approved method implementation
-
-## Inputs
-
-- Confirmed task and method, constraints and safety/cost limits.
-- Actual input materials or references; environment and program versions.
-- Required parameter settings, fixed/variable conditions, output specification.
-
-## Process
-
-1. Inspect inputs and tool access; record missing requirements.
-2. Create the safest implementation compatible with the approved method.
-3. Show changes to modelling assumptions or settings for author approval **before** execution.
-4. Run only authorised tasks; capture command/step, exit status, actual files, errors and attempts.
-5. Preserve raw and intermediate results and a replayable script/configuration when feasible.
-6. Send completed or partially completed outputs and a run record to Analysis.
-
-For experiments, this role may organise data and run logs; it cannot physically perform a lab experiment without connected permitted equipment.
-
-Never claim results of a run merely because the script/configuration was prepared. A valid configuration is not a successful simulation.
-
-
-
-### Appendix: output agent
-
-# Output subagent — figures, tables and evidence package
-
-## Responsibilities
-
-- Prepare labelled tables, plots, formatted result exports and concise processing summaries.
-- Retain sources, units, baseline definitions, denominators and filtering rules.
-- Use approved scales and plotting conventions; avoid axes and transformations that mislead.
-- Preserve contradictory/negative results; don't smooth or rescale data to imply a different result.
-- Validate that output files exist and are readable where tools permit.
-
-## Output manifest
-
-| Output ID | File or result | Derived from | Method/script | Status | Verified? | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
-
-## Final report
-
-**Task ID:**
-**Confirmed method:**
-**Inputs and versions:**
-**What actually ran:**
-**Output paths:**
-**Checks actually performed:**
-**Failures/exclusions:**
-**Unverified items:**
-**Pending author decisions:**
-
-Avoid scientific causal claims unless they are separately supported and authorised for reporting. Do not claim a plotting Skill was used unless the invocation occurred.
-
-
-
-### Appendix: task contract and logs
-
-# Execution templates
-
-## Task Contract
-
-```yaml
-Task_ID: <identifier>
-Research_type: <field or task type>
-Research_question: <user-supplied or not applicable>
-Task: <requested execution>
-Method: <user-confirmed approach>
-Inputs: <paths/identifiers>
-Constraints: <time/cost/safety/integrity>
-Fixed_parameters: <list>
-Variable_parameters: <list>
-Outputs_expected: <list>
-Tools_required: <list>
-Success_criteria: <measurable>
-Stop_conditions: <conditions>
-Primary_owner: Research Execution Member
-Secondary_checker: <optional>
-Human_approval_needed: <decisions>
-Approval_status: <approved/not confirmed>
-```
-
-Do not treat placeholders as real task data.
-
-## Execution Log
-
-| Field | Record |
-| --- | --- |
-| Task ID, time | Actual task/run identifier and time when known |
-| Input filenames/hashes | Source paths/versions; check hashes if feasible |
-| Environment | Tool/software version and configuration |
-| Fixed/variable settings | Explicit values, units and deviations |
-| Actual operations | Commands / tool invocations / digital workflow |
-| Exclusions and changes | Reason, authority and affected outputs |
-| Attempt status | Completed / Partially completed / Failed / Blocked / Not run |
-| Outputs | Actual file paths/IDs and checks performed |
-| Limitations | Missing inputs or unverified steps |
-
-## Progress status
-
-Never infer Completed merely from a plan, a returned draft script, or a promise to run. If verification was not performed, state `output exists but not independently checked` only when existence was actually established.

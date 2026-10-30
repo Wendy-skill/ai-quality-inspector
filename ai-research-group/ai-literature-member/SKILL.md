@@ -7,6 +7,7 @@ description: >
   or a research-gap synthesis. Supports scientific papers, theses, and research
   proposals. Separates search-result claims from full-text evidence and never
   invents sources or bibliographic details.
+  Trigger on 文献检索、文献阅读、参考文献核验、证据综述 and literature search, full-text reading, citation verification. Do not trigger for language-only polishing or manuscript-format fixes.
 ---
 
 # AI Literature Member
@@ -51,7 +52,7 @@ When claiming `Confirmed`, identify the thing confirmed. Confirming that an abst
 
 ### Search subagent
 
-Read Appendix: search agent (included in this file) for query construction, databases, inclusion criteria, deduplication and triage.
+Read `references/search-agent.md` for query construction, databases, inclusion criteria, deduplication and triage.
 
 **Owns:** discover candidates; record query, source/date, identifiers, relevance, reasons for exclusion, and access limitations.
 
@@ -59,7 +60,7 @@ Read Appendix: search agent (included in this file) for query construction, data
 
 ### Reading subagent
 
-Read Appendix: reading agent (included in this file) to extract structured evidence from specific accessible paper(s).
+Read `references/reading-agent.md` to extract structured evidence from specific accessible paper(s).
 
 **Owns:** individual reading cards, methods, results, definitions, conditions, figures/tables, limitations and evidence locations.
 
@@ -67,7 +68,7 @@ Read Appendix: reading agent (included in this file) to extract structured evide
 
 ### Citation subagent
 
-Read Appendix: citation agent (included in this file) for metadata verification and citation consistency.
+Read `references/citation-agent.md` for metadata verification and citation consistency.
 
 **Owns:** author/title/year/source/volume/issue/pages-or-article-number/DOI, mismatches, and matching references to papers.
 
@@ -131,7 +132,7 @@ If another role is unavailable, give the user a concrete pending task; do not cl
 
 ## Output and persistence
 
-Read Appendix: output templates (included in this file) for structured tables, reading cards and evidence maps.
+Read `references/output-templates.md` for structured tables, reading cards and evidence maps.
 
 When writing to files is authorised, preserve a task folder, ideally:
 
@@ -151,131 +152,16 @@ Only write files that are meaningful for the stages actually completed. In `prov
 
 Pause if: the core research question is ambiguous enough to change search strategy; a requested deep reading lacks the full paper; essential identity metadata cannot be resolved for safe citation; or a user scientific decision is required. Otherwise proceed with supported work and mark remaining gaps.
 
+
+## Coordination with other AI research-group members (optional)
+
+This Skill works independently. Five member names indicate **responsibilities**, not proof of running multi-agent processes. The default research workflow is **Literature → approved Execution → Scientific Review → Editing → Quality Inspection**, with return loops after evidence-changing findings.
+
+- Read `references/specialist-routing.md` only when the user task actually benefits from another specialist; never assume a named Skill is installed, connected or invoked.
+- Read `references/coordination-protocol.md` when sharing an issue, routing to another member, or consolidating findings. Reuse previously located evidence and prevent multiple members from independently auditing the same issue without reason.
+- Read `references/claim-data-ledger.md` when the project has recurring claims, numerical results, case IDs, versions or a cross-chapter audit. Its schema is not automatic memory: consume a supplied ledger, or create a provisional one; persist it only when supported and authorised.
+- Keep local specialist rules authoritative: scientific Reviewer uses **Severity**; Quality Inspector uses **Impact**. All members exchange `ID, owner, location/version, issue, evidence, source/verification status, consequence, action, author decision, workflow state`.
+- If the relevant tool/member is unavailable, report a specific pending task; do not pretend it was delegated or completed.
+- Do not invoke every specialist mechanically. Use the smallest adequate combination and track source/version changes before rerunning affected checks.
+
 **Final principle:** Discover responsibly → read the actual source → verify metadata → trace claims → synthesise within evidence limits → preserve human judgement.
-
-
----
-
-## Inlined reference modules (standalone edition)
-
-The sections below replace the `references/` files for single-file use. Read only the sections relevant to the request.
-
-
-### Appendix: citation agent
-
-# Citation subagent — bibliographic verification
-
-## Verify where available
-
-- Exact title; author list and order; publication year and online/print version.
-- Journal/publisher or conference/source; volume, issue, pages or article number.
-- DOI, arXiv/other persistent ID, version or retraction/correction status if relevant and available.
-- Reference-to-PDF match; duplicates/errata; in-text vs bibliography matching if manuscript supplied.
-
-## Labels
-
-- **Verified:** corroborated by the article itself and/or a trustworthy matching bibliographic record; identify the source used.
-- **Mismatch:** two documented records disagree; show both, do not silently choose.
-- **Unverified:** supporting metadata or source was not accessible.
-
-A DOI pattern that looks plausible is not verification. A bibliography generated by AI is not an independent source. The scientific validity of an article is outside this role.
-
-
-
-### Appendix: output templates
-
-# Literature Member — output templates
-
-## Search/Triage table
-
-| ID | Paper | Source/ID | Relevance & reason | Access | Verification | Next step |
-| --- | --- | --- | --- | --- | --- | --- |
-
-## Reading card
-
-**Paper ID:**
-**Bibliographic source and status:**
-**Research question:**
-**Study design/conditions:**
-**Main results and exact evidence locations:**
-**Mechanisms — author-stated or inferred:**
-**Limitations and scope:**
-**Relevance to review question:**
-**Unverified/missing material:**
-
-## Citation verification
-
-| Paper ID | Metadata field | Article record | External record (if checked) | Status | Action |
-| --- | --- | --- | --- | --- | --- |
-
-## Evidence map
-
-| Claim | Supporting source | Page/section/figure/table | Source access | Judgement | Boundary/uncertainty |
-| --- | --- | --- | --- | --- | --- |
-
-## Synthesis
-
-1. Question/scope and actual search coverage.
-2. Number and relevance of candidates; number **actually read in full**.
-3. Evidence-backed findings, conflicts and conditional explanations.
-4. Evidence gaps, explicitly limited by source coverage.
-5. Verified bibliographic details and unverified details.
-6. Follow-up tasks and human decisions required.
-
-Use only data actually gathered; no fictional rows or counts.
-
-
-
-### Appendix: reading agent
-
-# Reading subagent — per-paper evidence extraction
-
-Read the actual paper or clearly mark limited access.
-
-## Reading card fields
-
-1. Bibliographic information and source access level.
-2. Research aim/question and author-stated gap.
-3. Study design and material/methods, including units, conditions, baselines and assumptions.
-4. Measurements or observed variables; sample sizes, uncertainty and comparison methods if provided.
-5. Main results **with the precise page/section/figure/table or quotation fragment location**.
-6. Author-stated mechanism vs reviewer inference vs not established.
-7. Explicit limitations and demonstrable study scope.
-8. Relevance to the user's research question and evidence that supports that classification.
-9. Citable evidence ledger: Claim → Source location → Reported data → Access/status.
-10. Unreadable/missing content; do not fill gaps with model memory.
-
-For a PDF with graphs, inspect the visible figure if accessible. Do not describe a plot or claim precise plotted values without viewing or obtaining the values directly.
-
-Do not merge different papers into one reading card. For a contradiction, first check whether definitions, conditions and endpoints differ.
-
-
-
-### Appendix: search agent
-
-# Search subagent — literature discovery and triage
-
-## Method
-
-1. Define topic, population/system, outcomes, methods and synonyms.
-2. Make inclusion/exclusion criteria explicit, including publication period only if warranted by the user.
-3. Search only accessible/authorised scholarly sources. Record the actual database/search engine, query and date, without inventing search coverage.
-4. Deduplicate using DOI/identifier and title-author-year checks. Same title with different versions may require manual confirmation.
-5. Classify relevance using **actual available evidence**, not title-keyword matches alone.
-6. Select priority full texts and explain why, without pretending to have read them.
-
-## Search result fields
-
-- Source query and date
-- Title, authors, year, journal/source, DOI/identifier **with verification status per field**
-- Research relevance: High / Medium / Low / Unverified
-- Reason for inclusion/exclusion
-- Access: Search listing only / Abstract read / Full text found / Full text unavailable
-- Next action
-
-## Guardrails
-
-- Do not claim the list is exhaustive without a reproducible search that supports it.
-- Do not infer detailed methods or numerical findings from the title.
-- Preserve excluded candidates and exclusion reasons for reproducibility if the scope warrants it.
-- A paywalled citation is not permission to infer its results; request the file if needed.

@@ -1,17 +1,58 @@
-# AI Research Group – Three Additional Skills
+# AI 课题组 | Five Research Member Skills — v3 Coordination Update
 
-This folder hosts three standalone Skills from the five-member AI research group.
+五个 Skill **可单独安装、单独使用**；只有在相应工具和权限实际可用时，才按需调用其他成员或专项 Skill。
 
-| Skill | Function |
-| --- | --- |
-| `ai-literature-member` | Literature search, deep reading and citation checking |
-| `ai-research-execution` | Research execution, data analysis and reproducible outputs |
-| `ai-paper-editor` | Academic structure, terminology and language editing |
+## 文件夹
 
-Each subfolder contains a self-contained `SKILL.md` with its reference modules inlined. These Skills can be installed separately.
+| Member | Three roles / area | Optional specialist examples |
+| --- | --- | --- |
+| `ai-literature-member` | Search / Reading / Citation | Research Reading Mentor |
+| `ai-research-execution` | Execution / Analysis / Output | Fluent Setting Checker, Physics Sanity Check |
+| `ai-paper-editor` | Structure / Terminology / Language | Claim Graph Paper Writer, Paper Format Guardian |
+| `ai-strict-reviewer` | Methods / Evidence / Statistics | Experimental, Simulation, Review Paper Reviewer, Claim–Evidence, Physics Sanity |
+| `ai-quality-inspector` | Numbers / Figures-References / Requirements | Paper Format Guardian, Fluent Setting Checker |
 
-The other two members are published at the root of this repository (AI Quality Inspector) and in the separate AI Strict Reviewer repository. The three skills in this folder currently share this public GitHub repository rather than having their own separate repositories.
+## Workflow (default, not compulsory)
 
-The five roles cover: literature → execution → editing → strict review → quality inspection. Human researchers retain responsibility for scientific decisions.
+`文献 → 执行 → 科学审稿 → 编辑 → 质量检查 → 提交`
 
-**Note:** These files are protocols. Availability of code execution, document processing, web search or actual subagents depends on the tool environment. Never claim an action was performed when it was not.
+- 科学审稿发现数据或方法问题：回到文献/执行组员，并由作者决定修改方法。
+- 编辑可能改变科学含义：保留原文，等待作者确认。
+- 终稿质检发现冲突：验证唯一正确的数据源；不擅自猜值。
+- 大改后只复查受影响的环节，避免重复 token 开销。
+
+## 独立安装
+
+把**任意一个成员的完整文件夹**复制到支持 Skill 的环境的相应目录。主入口为该文件夹的 `SKILL.md`。不要只复制主文件后漏掉 `references/`，其中包含按需读取的规则。
+
+五个 `references/coordination-protocol.md`、`references/claim-data-ledger.md`、`references/specialist-routing.md` 是独立包随附的可选参考；不是自动同步数据库，也不意味着已安装其他专项工具。
+
+## 推荐调用
+
+```
+调用 AI Strict Reviewer，先检查方法和证据是否支持结论。若检测到实验/数值/物理专项问题，只有对应专项 Skill 实际可用时才调用它；使用统一问题 ID 交接结果，不要重复检查已核实的事项。
+```
+
+```
+调用 AI Quality Inspector，检查这篇论文数字、图表、公式和引文的一致性。优先复用我提供的共享命题与数据账本，发现冲突不自行选值，报告实际检查范围。
+```
+
+## 本次升级
+
+- 继承了五个原 Skill 的全部有效研究规则及专业 reference 文件。
+- 新增每位成员专属的专项调用矩阵与中英触发/排除条件。
+- 新增统一问题交接、证据状态、可共享命题/数据账本模板。
+- 质量检查和严格审稿的长规则分离到按需加载的 reference，主文件更短。
+- **结构校验不代表真实论文行为测试**。见 `TEST_CASES.md`，用于后续对不同输入逐项验收。
+
+## 发布状态
+
+**发布信息**：v3 协作文件发布在本公开仓库的 ai-research-group 专题目录中；严格审稿组员使用独立仓库，质量检查组员使用本仓库根目录。尚未安装到用户设备，也未运行外部专家 Skill。
+
+## GitHub 文件位置
+
+- 文献组员：`ai-research-group/ai-literature-member/`
+- 科研执行组员：`ai-research-group/ai-research-execution/`
+- 论文编辑组员：`ai-research-group/ai-paper-editor/`
+- 严格审稿组员：独立仓库 `Wendy-skill/ai-strict-reviewer`
+- 质量检查组员：本仓库根目录 `Wendy-skill/ai-quality-inspector`
