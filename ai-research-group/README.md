@@ -1,4 +1,4 @@
-# AI 课题组 | Five Research Member Skills — v3 Coordination Update
+# AI 课题组 | Five Research Member Skills — v3
 
 五个 Skill **可单独安装、单独使用**；只有在相应工具和权限实际可用时，才按需调用其他成员或专项 Skill。
 
@@ -47,7 +47,7 @@
 
 ## 发布状态
 
-**发布信息**：v3 协作文件发布在本公开仓库的 ai-research-group 专题目录中；严格审稿组员使用独立仓库，质量检查组员使用本仓库根目录。尚未安装到用户设备，也未运行外部专家 Skill。
+**发布信息**：v3 文件发布在本公开仓库的 ai-research-group 专题目录中；严格审稿组员使用独立仓库，质量检查组员使用本仓库根目录。尚未安装到用户设备，也未运行外部专家 Skill。
 
 ## GitHub 文件位置
 
