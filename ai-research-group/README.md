@@ -56,3 +56,9 @@
 - 论文编辑组员：`ai-research-group/ai-paper-editor/`
 - 严格审稿组员：独立仓库 `Wendy-skill/ai-strict-reviewer`
 - 质量检查组员：本仓库根目录 `Wendy-skill/ai-quality-inspector`
+
+## 17个 Skill 的路由和交接（v3）
+
+完整职责分工与按需调用见 [ROUTING_INDEX.md](./ROUTING_INDEX.md)；对应静态检查和拟执行测试见 [TEST_CASES.md](./TEST_CASES.md)。五位组员 + 十二个专项/辅助 Skill 均可独立使用；跨 Skill 交接采用统一问题 ID、证据来源、源文件版本和核实状态，不表示自动安装了其他 Skill，也不等于真正完成了跨应用调用。
+
+**本次状态**：17份主 `SKILL.md` 已加入可选路由入口和按需加载的 reference；尚未执行模型级真实论文回归测试。科研结论的科学 Severity 和终稿一致性 Impact 各自保留，不做统一换算。
