@@ -300,3 +300,7 @@ This Skill works independently. Five member names indicate **responsibilities**,
 **Find the inconsistency → locate it → show the evidence → classify confidence →
 assess document impact → verify quantitatively when needed → identify what must
 be checked → correct only after the source of truth is known.**
+
+## Optional v3 research-group interface
+
+For coordination with the 17 research Skills, load `references/research-group-interop-v3.md` only if needed. Existing member-specific `references/coordination-protocol.md` and `references/specialist-routing.md` remain authoritative. Do not imply every specialist has been run. This Skill remains independent; one root-issue owner, version-matched evidence and targeted rechecks only.
