@@ -10,4 +10,4 @@
 
 ## AI 课题组其它组员
 
-本仓库的 `ai-research-group/` 目录还提供文献、科研执行和论文编辑三个独立 Skill 的 v3 协作版；严格审稿组员位于另一个公开仓库 `Wendy-skill/ai-strict-reviewer`。
+本仓库的 `ai-research-group/` 目录还提供文献、科研执行和论文编辑三个独立 Skill 的 v3；严格审稿组员位于另一个公开仓库 `Wendy-skill/ai-strict-reviewer`。
