@@ -155,6 +155,8 @@ Pause if: the core research question is ambiguous enough to change search strate
 
 ## Coordination with other AI research-group members (optional)
 
+- When coordinating with any of the 17 public Skills, load `references/research-group-interop-v3.md` only for the handoff; member-specific `references/coordination-protocol.md` and `references/specialist-routing.md` take precedence on responsibility and approval.
+
 This Skill works independently. Five member names indicate **responsibilities**, not proof of running multi-agent processes. The default research workflow is **Literature → approved Execution → Scientific Review → Editing → Quality Inspection**, with return loops after evidence-changing findings.
 
 - Read `references/specialist-routing.md` only when the user task actually benefits from another specialist; never assume a named Skill is installed, connected or invoked.
