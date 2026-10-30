@@ -1,4 +1,4 @@
-# Changelog — v3 / Coordination Update
+# Changelog — v3
 
 | Member | Kept | Added / changed |
 | --- | --- | --- |
