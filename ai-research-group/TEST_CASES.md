@@ -20,3 +20,36 @@ Use a fixed copy of the sample input and score route correctness, evidence fidel
 | Test | Model/tools | Pass/Fail | Evidence/output path | Revision needed |
 | --- | --- | --- | --- | --- |
 | T01–T10 | Not run | Not assessed | — | To be determined |
+
+## v3 — 17-Skill route acceptance cases (not yet executed)
+
+Each case requires a frozen input, evidence/version checks, an expected owner, and an explicit result log. Passing a source-file check is **not** a substitute for running the case.
+
+| Case | Trigger | Expected primary Skill | Routing / acceptance condition |
+| --- | --- | --- | --- |
+| S01 | 本周卡住，安排开工 | research-monday-start | Plan only, no fictitious execution |
+| S02 | 使用 Zotero 读一篇指定全文 | research-reading-mentor | Only claim PDF/full-text access if available |
+| S03 | 已知重复次数和不确定度需要实验审查 | engineering-experiment-reviewer | Report experimental evidence; scientific judgement stays Reviewer |
+| S04 | 系统综述检索是否完整 | engineering-review-paper-reviewer | Review-specific coverage/selection check |
+| S05 | CFD 网格与残差是否支持结论 | simulation-paper-auditor | Numerical credibility without generic rewriting |
+| S06 | Fluent 日志和论文 Methods 不一致 | fluent-setting-checker | Real solver evidence required; no guessed settings |
+| S07 | 流场机理是否物理上可信 | physics-sanity-check | Plausible does not mean proven |
+| S08 | 结论句对应哪张图和哪条数据 | claim-evidence-checker | Map exact claim and evidence, not duplicate final Severity |
+| S09 | 对标目标期刊近期论文 | journal-gap-analyzer | Dated identified benchmark; no acceptance prediction |
+| S10 | Word 批量修复格式 | paper-format-guardian | Backup + text invariance checked before claiming safe edit |
+| S11 | 整体科学严格审稿 | ai-strict-reviewer | Delegate by distinct evidence needs; synthesise scientific Severity |
+| S12 | 将复杂论述拆成命题图并重写 | claim-graph-paper-writer | Reconstruct only approved nodes, preserve scientific strength |
+| S13 | 检查摘要和结论数值是否一致 | ai-quality-inspector | Compare same-condition values, Impact not Severity, no guessing |
+| S14 | 把多个技能压缩以节约上下文 | skill-optimizer | Preserve all prohibitions, source constraints and output requirements |
+| S15 | 查文献并核验 DOI | ai-literature-member | Search hit != full-text confirmation; trace bibliographic evidence |
+| S16 | 运行已批准数据分析任务 | ai-research-execution | Actual tool run + script/dataset/version log; no unapproved rerun |
+| S17 | 修改论文语言而不改变科学含义 | ai-paper-editor | Meaning lock, author confirmation for scientific changes |
+| X01 | 同一图表数字在三 Skill 中出现 | Reviewer / Inspector / Execution | Single owner per root issue; cross-referenced ID, no duplicate full audits |
+| X02 | 已有旧版 ledger，新数据更新后 | Relevant source owner | Detect version mismatch; reopen only affected claims/checks |
+| X03 | 要求‘调用所有17项’但没有安装 | Primary user task owner | Do not claim unavailable calls or fake multi-agent execution |
+
+## Actual execution record
+
+| Case(s) | Environment/model | Input snapshot | Tool/provenance trace | Result | Next action |
+| --- | --- | --- | --- | --- | --- |
+| S01–S17, X01–X03 | Not run | To be supplied | None | Not assessed | Execute real-world regression cases before performance claims |
