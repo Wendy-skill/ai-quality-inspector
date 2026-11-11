@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this Skill, please cite it using these metadata."
+type: software
+title: "AI Quality Inspector | AI 论文质量检查组员"
+authors:
+  - given-names: "wendy.z"
+    alias: "Wendy-skill"
+abstract: >-
+  负责论文提交前的数字、图表、公式、引用、术语、编号和全文一致性检查，与第4位严格审稿员的“科学有效性”判断分离。
+repository-code: "https://github.com/Wendy-skill/ai-quality-inspector"
+license: Apache-2.0
